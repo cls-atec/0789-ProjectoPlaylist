@@ -278,42 +278,50 @@ public class Main {
     
     public static Player createTestPlayer(Scanner scan, Player player, int N_INICIAL_DE_PLAYLISTS)
     {
-        
-        // Seed pré definida permite obter os mesmo resultados de forma consistente
-        Random r = new Random(12345);
-        
-        //https://www.mkyong.com/java/java-display-double-in-2-decimal-points/
-        final DecimalFormat decimalFormatter2DecimalPlaces = new DecimalFormat(".##");
-
-        String[] estilos = new String[] {"Jazz", "Clássica", "Bossa-Nova", "Drum&Bass", "Pop"};
-        String[] nomes = new String[] {"Arlindo", "Bruno", "Carlos", "Diogo", "Estevão", "Fernando"};
-        String[] apelidos = new String[] {"Sousa", "Gomes", "Santos", "Pereira", "Fernandes", "Lopes"};
-
-        for(int i = 0; i<N_INICIAL_DE_PLAYLISTS; i++)
+        if(player.getNumDePlaylistsOcupadas()>0)
         {
-            int playlistSize = r.nextInt(10) + 1;
-            player.adicionarPlaylist(new Playlist("Playlist "+(i+1), playlistSize));
-            
-            for(int c = 0; c < playlistSize; c++)
-            {
-                //Generate a random duration for the music
-                double duration = 1 + (r.nextDouble() * (8));
-                String durationString = decimalFormatter2DecimalPlaces.format(duration);
-                durationString = durationString.replace(",", ".");
-                duration = Double.parseDouble(durationString);
-                //----------------------------------------
-                player.getListaDePlaylists()[i].adicionaMusica(
-                    new Musica(
-                        "Titulo "+(c+1),
-                        nomes[r.nextInt(nomes.length-1)] + " " + apelidos[r.nextInt(apelidos.length-1)],
-                        duration,
-                        estilos[r.nextInt(estilos.length-1)]
-                    )
-                );
-            }
+            System.out.println("Os dados apenas podem ser carregados com o player vazio");
+            return player;
         }
-        System.out.println("Dados criados!");
-        return player;
+        else
+        {
+            // Seed pré definida permite obter os mesmo resultados de forma consistente
+            Random r = new Random(12345);
+            
+            //https://www.mkyong.com/java/java-display-double-in-2-decimal-points/
+            final DecimalFormat decimalFormatter2DecimalPlaces = new DecimalFormat(".##");
+
+            String[] estilos = new String[] {"Jazz", "Clássica", "Bossa-Nova", "Drum&Bass", "Pop"};
+            String[] nomes = new String[] {"Arlindo", "Bruno", "Carlos", "Diogo", "Estevão", "Fernando"};
+            String[] apelidos = new String[] {"Sousa", "Gomes", "Santos", "Pereira", "Fernandes", "Lopes"};
+
+            for(int i = 0; i<N_INICIAL_DE_PLAYLISTS; i++)
+            {
+                int playlistSize = r.nextInt(10) + 1;
+                player.adicionarPlaylist(new Playlist("Playlist "+(i+1), playlistSize));
+                
+                for(int c = 0; c < playlistSize; c++)
+                {
+                    //Generate a random duration for the music
+                    double duration = 1 + (r.nextDouble() * (8));
+                    String durationString = decimalFormatter2DecimalPlaces.format(duration);
+                    durationString = durationString.replace(",", ".");
+                    duration = Double.parseDouble(durationString);
+                    //----------------------------------------
+                    player.getListaDePlaylists()[i].adicionaMusica(
+                        new Musica(
+                            "Titulo "+(c+1),
+                            nomes[r.nextInt(nomes.length-1)] + " " + apelidos[r.nextInt(apelidos.length-1)],
+                            duration,
+                            estilos[r.nextInt(estilos.length-1)]
+                        )
+                    );
+                }
+            }
+            System.out.println("Dados criados!");
+            return player;
+        }
+
     }
     
     public static void confirmContinue(Scanner scan)
