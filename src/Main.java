@@ -2,10 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.text.DecimalFormat;
 public class Main {
-/*
-	private static Playlist[] listaDePlaylists;
-	private static int numDePlaylists = 0;
-*/
+
 	public static void main(String[] args) {
 
 		final int N_INICIAL_DE_PLAYLISTS = 5;
@@ -244,7 +241,6 @@ public class Main {
 	// Mêtodos adicionais / Other methods
 	//===============================================================
 	
-
 	public static void listPlaylists(Player player)
 	{
 		if(player.getNumDePlaylists()>0)
@@ -264,7 +260,6 @@ public class Main {
 
 	public static void deletePlaylist(Scanner scan, Player player)
 	{
-		// Find what Play list should we look in:
 		int playlistNumber;
 		int playlistIndex;
 		System.out.println("Introduza o número da Playlist:");

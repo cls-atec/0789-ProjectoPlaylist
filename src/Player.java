@@ -34,24 +34,9 @@ public class Player {
     		numDePlaylistsOcupadas++;
     	}
     }
-    /*
-    public Playlist getPlaylistByIndex(int playlistIndex)
-    {
-    	if(playlistIndex <0 || playlistIndex > (numDePlaylists -1))
-    	{
-    		throw new IllegalArgumentException("Esta playlist não existe");
-    	}
-    	else
-    	{
-    		return listaDePlaylists[playlistIndex];
-    	}
-    }
-	*/
+
 	public void increasePlaylistArray()
 	{
-		/*
-		 * If the size of the listaDePlaylists array is insufficient to accommodate the new playlist, we copy the array and add one free position
-		 */
 		Playlist[] listaDePlaylistsAux = new Playlist[numDePlaylists + 1];
 		for(int i = 0; i<numDePlaylists; i++)
 		{
@@ -86,8 +71,6 @@ public class Player {
 		if(!playlistIndexExists(playlistIndex))
 		{
 			throw new IllegalArgumentException("Esta playlist não existe");
-			//System.out.println("A playlist seleccionada não existe!");
-			//System.out.println("Por favor introduza um número válido.");
 		}
 		else
 		{
