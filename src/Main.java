@@ -112,7 +112,7 @@ public class Main {
                         System.out.println("Opção inválida.");
                         break;
                 }
-            }while(opcao != 1 || opcao!=2);
+            }while(opcao != 1 && opcao!=2);
         }
     }
     
@@ -163,8 +163,8 @@ public class Main {
                 int opcao;
                 do{
                     System.out.println("Deseja aumentar a capacidade da playlist e inserir a música?");
-                    System.out.println("1 - Sim");
-                    System.out.println("2 - Não");
+                    System.out.println("0 - Sim");
+                    System.out.println("1 - Não");
                     opcao = scan.nextInt();
                     scan.nextLine();
                     switch (opcao)
@@ -181,7 +181,7 @@ public class Main {
                             System.out.println("Opção inválida.");
                             break;
                     }
-                }while(opcao != 0 || opcao!=1);
+                }while(opcao != 0 && opcao!=1);
             }
         }
     }
